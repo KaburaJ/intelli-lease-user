@@ -10,6 +10,16 @@ const AlarmsPage = () => {
     <Text style={styles.alarmsCardText}>22222222222</Text>
     <Text style={styles.alarmsCardText}>5555555555</Text>
     </View>
+    <View style={styles.alarmsCard}>
+    <Text style={styles.alarmsCardText}>1111111111111</Text>
+    <Text style={styles.alarmsCardText}>22222222222</Text>
+    <Text style={styles.alarmsCardText}>5555555555</Text>
+    </View>
+    <View style={styles.alarmsCard}>
+    <Text style={styles.alarmsCardText}>1111111111111</Text>
+    <Text style={styles.alarmsCardText}>22222222222</Text>
+    <Text style={styles.alarmsCardText}>5555555555</Text>
+    </View>
 
     
 

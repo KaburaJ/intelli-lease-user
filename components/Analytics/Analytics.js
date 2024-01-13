@@ -1,9 +1,13 @@
+import { useRoute } from "@react-navigation/native";
 import React from "react";
 import { StatusBar, Dimensions } from "react-native";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { BarChart, LineChart, PieChart } from "react-native-chart-kit";
+import MapView, { Marker } from "react-native-maps";
 
 export default function Analytics() {
+  const route = useRoute();
+  const { latitude, longitude } = route.params||{};
   const line = {
     labels: ["January", "February", "March", "April", "May", "June"],
     datasets: [
@@ -66,7 +70,21 @@ export default function Analytics() {
       <View style={styles.container}>
         <Text style={styles.logo}>Intelli-Lease</Text>
         <Text style={styles.subText}>CountyA Map view</Text>
-        <View style={styles.map}></View>
+        <MapView
+          style={styles.map}
+          initialRegion={{
+            latitude: latitude||0,
+            longitude: longitude||0,
+            latitudeDelta: 3.5,
+            longitudeDelta: 3.5,
+          }}
+        >
+          <Marker
+            coordinate={{ latitude: latitude||0, longitude: longitude||0}}
+            title="Kenya"
+            description="Center of Kenya"
+          />
+        </MapView>
         <Text style={styles.subTextSmall}>
           Visual of Arable land Areas and crops grown
         </Text>
@@ -196,7 +214,7 @@ const styles = StyleSheet.create({
   },
   map: {
     backgroundColor: "#E2F6E9",
-    height: 495,
+    height: 425,
     width: "95%",
     marginLeft: "2%",
     marginBottom: "5%",

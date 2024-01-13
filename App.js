@@ -10,6 +10,38 @@ import { Ionicons } from "@expo/vector-icons";
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
+const HomeStack = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+       name="Welcome, User"
+       component={Home}
+       options={{
+         title: "Home",
+         headerShown: false,
+         tabBarIcon: ({ color, size }) => (
+           <Ionicons name="ios-home" color={"green"} size={size} />
+         ),
+       }}
+      />
+      <Stack.Screen
+       name="Analytics"
+       component={Analytics}
+       options={{
+         title: "Analytics",
+         headerShown: false,
+         tabBarIcon: ({ color, size }) => (
+           <Ionicons
+             name="stats-chart-outline"
+             color={"green"}
+             size={size}
+           />
+         ),
+       }}/>
+    </Stack.Navigator>
+  )
+}
+
 const ProfileStack = () => {
   return (
     <Stack.Navigator>
