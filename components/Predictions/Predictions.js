@@ -176,12 +176,11 @@ const styles = StyleSheet.create({
     paddingBottom: 50,
   },
   logo: {
-    marginLeft: '5%',
-    fontStyle: 'italic',
-    marginTop: '14%',
+    marginLeft: "5%",
+    marginTop: "14%",
     fontSize: 22,
-    marginBottom: '8%',
-    color: 'black',
+    marginBottom: "8%",
+    color: "#ccc"
   },
   text: {
     marginLeft: '4%',

@@ -7,6 +7,7 @@ import {
   TextInput,
   SafeAreaView,
   FlatList,
+  TouchableOpacity
 } from "react-native";
 import data from "../../assets/ke.json";
 import { useState, useEffect } from "react";
@@ -44,21 +45,21 @@ export default function Home() {
           <Text style={styles.subText}>Places</Text>
 
           <View style={styles.countyView}>
-            {filteredData.map((county, index) => (
-              <View
-                style={styles.row}
-                key={index}
-                onPress={() => {
-                  navigation.navigate("Analytics", {
-                    latitude: parseFloat(county.lat),
-                    longitude: parseFloat(county.lng),
-                  });
-                }}
-              >
-                <Text style={styles.rowText}>{county.admin_name}</Text>
-              </View>
-            ))}
-          </View>
+  {filteredData.map((county, index) => (
+    <TouchableOpacity
+      key={index}
+      style={styles.row}
+      onPress={() => {
+        navigation.navigate("Analytics", {
+          latitude: parseFloat(county.lat),
+          longitude: parseFloat(county.lng),
+        });
+      }}
+    >
+      <Text style={styles.rowText}>{county.admin_name}</Text>
+    </TouchableOpacity>
+  ))}
+</View>
         </View>
         <StatusBar style="auto" />
       </ScrollView>
@@ -79,11 +80,10 @@ const styles = StyleSheet.create({
   },
   logo: {
     marginLeft: "5%",
-    fontStyle: "italic",
     marginTop: "14%",
     fontSize: 22,
     marginBottom: "8%",
-    color: "black",
+    color: "#ccc",
   },
   text: {
     marginLeft: "4%",
@@ -119,11 +119,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginBottom: 22,
+    borderWidth: 2,  
+    borderColor: "transparent",
     border: "none",
     marginRight: 22,
     borderRadius: 25,
     backgroundColor: "#E2F6E9",
-    
   },
   rowText: {
     color: "green",
